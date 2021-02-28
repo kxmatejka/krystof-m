@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {Separator} from './separater'
 
 const StyledHeading = styled.h1`
-  color: #eee;
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
   font-size: 3rem;

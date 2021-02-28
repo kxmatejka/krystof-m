@@ -1,12 +1,9 @@
 import React, {FC} from 'react'
 import styled from 'styled-components'
 import {Separator} from '../separater'
+import {LinkBlogPost} from '../Link'
 
 const StyledSection = styled.section`
-  color: var(--light-color);
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
-
   @media only screen and (min-width: 1000px)  {
     transition: transform 1s ease;
 
@@ -27,6 +24,7 @@ const StyledImgPreview = styled.p`
   padding: 0;
   text-align: justify;
   line-height: 1.6rem;
+  color: var(--light) !important;
 `
 
 const StyledImg = styled.img`
@@ -34,7 +32,6 @@ const StyledImg = styled.img`
   width: 100%;
   object-fit: cover;
   margin: 0;
-  opacity: 1;
 `
 
 const StyledFooterContainer = styled.div`
@@ -57,19 +54,19 @@ const StyledTagsItem = styled.li`
   cursor: pointer;
   padding: 2px 10px;
   margin: 0 5px 10px 5px;
-  color: var(--dark-color);
+  color: var(--dark);
   border-radius: 5px;
   font-weight: 700;
   background: var(--highlight);
-  transition: all ease 0.3s;
+  transition: background ease 0.3s;
 
   &:hover {
-    color: var(--light-color);
-    background: var(--highlight-hover);
+    background: var(--light);
   }
 `
 
 interface Props {
+  id: string
   title: string
   image: string
   preview: string
@@ -77,12 +74,14 @@ interface Props {
   date: string
 }
 
-export const ArticlePreview: FC<Props> = ({title, image, preview, tags, date}) => {
+export const ArticlePreview: FC<Props> = ({id, title, image, preview, tags, date}) => {
   return (
     <StyledSection>
-      <StyledH2>{title}</StyledH2>
-      <StyledImg src={image} alt={title}/>
-      <StyledImgPreview>{preview}</StyledImgPreview>
+      <LinkBlogPost slug={id}>
+        <StyledH2>{title}</StyledH2>
+        <StyledImg src={image} alt={title}/>
+        <StyledImgPreview>{preview}</StyledImgPreview>
+      </LinkBlogPost>
       <StyledFooterContainer>
         <StyledTagsContainer>
           {tags.map((tag, index) => <StyledTagsItem key={index}>{tag}</StyledTagsItem>)}

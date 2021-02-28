@@ -1,0 +1,44 @@
+{
+  "1": {
+    "id": "1",
+    "title": "A",
+    "image": "",
+    "preview": "",
+    "chapters": [
+      {
+        "title": "",
+        "content": ""
+      }
+    ],
+    "tags": [
+
+    ],
+    "created": "666"
+  },
+  "2": {
+    "title": "B",
+    "created": "666",
+    "chapters": [
+      {
+        "title": "",
+        "content": ""
+      }
+    ],
+    "tags": [
+
+    ]
+  },
+  "3": {
+    "title": "C",
+    "created": "666",
+    "chapters": [
+      {
+        "title": "",
+        "content": ""
+      }
+    ],
+    "tags": [
+
+    ]
+  }
+}
