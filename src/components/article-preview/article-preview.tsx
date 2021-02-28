@@ -1,42 +1,40 @@
 import React, {FC} from 'react'
 import styled from 'styled-components'
+import {Separator} from '../separater'
 
 const StyledSection = styled.section`
   color: var(--light-color);
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
-  transition: transform 0.3s ease;
 
-  &:hover {
-    transform: scale(1.1);
+  @media only screen and (min-width: 1000px)  {
+    transition: transform 1s ease;
+
+    &:hover {
+      transition: transform 0.25s ease;
+      transform: scale(1.1);
+    }
   }
 `
 
 const StyledH2 = styled.h2`
   font-size: 2.2rem;
-  margin: 0 0 20px 0;
-`
-
-const StyledImgContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-  margin: 0 0 10px 0;
+  margin: 10px 0 20px 0;
 `
 
 const StyledImgPreview = styled.p`
-  margin: 10px 0 10px 0;
+  margin: 15px 0 20px 0;
   padding: 0;
   text-align: justify;
   line-height: 1.6rem;
 `
 
 const StyledImg = styled.img`
-  max-height: 220px;
+  height: 220px;
   width: 100%;
   object-fit: cover;
   margin: 0;
   opacity: 1;
-  transition: all ease 0.5s;
 `
 
 const StyledFooterContainer = styled.div`
@@ -71,11 +69,6 @@ const StyledTagsItem = styled.li`
   }
 `
 
-const StyledSeparator = styled.hr`
-  margin: 20px 0 30px 0;
-  border: 1px solid var(--dark-low-contrast);
-`
-
 interface Props {
   title: string
   image: string
@@ -88,10 +81,8 @@ export const ArticlePreview: FC<Props> = ({title, image, preview, tags, date}) =
   return (
     <StyledSection>
       <StyledH2>{title}</StyledH2>
-      <StyledImgContainer>
-        <StyledImg src={image} alt={title}/>
-        <StyledImgPreview>{preview}</StyledImgPreview>
-      </StyledImgContainer>
+      <StyledImg src={image} alt={title}/>
+      <StyledImgPreview>{preview}</StyledImgPreview>
       <StyledFooterContainer>
         <StyledTagsContainer>
           {tags.map((tag, index) => <StyledTagsItem key={index}>{tag}</StyledTagsItem>)}
@@ -100,7 +91,7 @@ export const ArticlePreview: FC<Props> = ({title, image, preview, tags, date}) =
           {date}
         </div>
       </StyledFooterContainer>
-      <StyledSeparator/>
+      <Separator/>
     </StyledSection>
   )
 }

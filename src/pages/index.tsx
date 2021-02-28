@@ -6,6 +6,7 @@ import {ArticlePreview} from '../components/article-preview'
 const PageContainer = styled.div`
   display: flex;
   justify-content: center;
+  padding: 0 20px;
 `
 
 const Container = styled.div`
