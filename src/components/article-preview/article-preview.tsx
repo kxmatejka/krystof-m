@@ -5,6 +5,11 @@ const StyledSection = styled.section`
   color: var(--light-color);
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `
 
 const StyledH2 = styled.h2`
@@ -12,15 +17,17 @@ const StyledH2 = styled.h2`
   margin: 0 0 20px 0;
 `
 
+const StyledImgContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 10px 0;
+`
+
 const StyledImgPreview = styled.p`
-  position: absolute;
-  margin: 0;
-  padding: 10px;
-  top: 180px;
+  margin: 10px 0 10px 0;
+  padding: 0;
   text-align: justify;
   line-height: 1.6rem;
-  background-color: #111c2a70;
-  transition: all ease 0.5s;
 `
 
 const StyledImg = styled.img`
@@ -30,24 +37,6 @@ const StyledImg = styled.img`
   margin: 0;
   opacity: 1;
   transition: all ease 0.5s;
-`
-
-const StyledImgContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-  height: 220px;
-  margin: 0 0 10px 0;
-
-  &:hover {
-    ${StyledImgPreview} {
-      top: 0;
-      background: transparent;
-    }
-
-    ${StyledImg} {
-      opacity: 0.3;
-    }
-  }
 `
 
 const StyledFooterContainer = styled.div`
