@@ -1,13 +1,6 @@
 import React from 'react'
 import {createGlobalStyle} from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    background: #fff;
-  }
-`
+import {GlobalStyle} from '../components/global-style'
 
 const SpringApp = ({Component, pageProps}) => {
   return (

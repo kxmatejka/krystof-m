@@ -2,8 +2,10 @@ import React, {FC} from 'react'
 import styled from 'styled-components'
 
 const StyledHeading = styled.h1`
-  font-family: sans-serif;
-  color: #3489c1
+  color: #eee;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  font-size: 3rem;
 `
 
 interface Props {
