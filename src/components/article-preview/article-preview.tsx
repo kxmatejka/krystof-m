@@ -1,5 +1,6 @@
 import React, {FC} from 'react'
 import styled from 'styled-components'
+import moment from 'moment'
 import {Separator} from '../separater'
 import {LinkBlogPost} from '../link'
 
@@ -91,7 +92,7 @@ export const ArticlePreview: FC<Props> = ({slug, title, image, preview, tags, da
           {tags.map((tag, index) => <StyledTagsItem key={index}>{tag}</StyledTagsItem>)}
         </StyledTagsContainer>
         <div>
-          {date}
+          {moment(date).fromNow()}
         </div>
       </StyledFooterContainer>
       <Separator/>

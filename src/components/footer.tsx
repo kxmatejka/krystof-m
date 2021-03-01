@@ -59,9 +59,7 @@ export const Footer = () => {
   return (
     <StyledFooter>
       {links.map((link, index) => (
-        <>
-          <StyledAnchor key={index} href={link.href} target='_blank'>{link.title}</StyledAnchor>
-        </>
+        <StyledAnchor key={index} href={link.href} target='_blank'>{link.title}</StyledAnchor>
       ))}
     </StyledFooter>
   )
