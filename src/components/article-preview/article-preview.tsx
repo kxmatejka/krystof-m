@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
 import styled from 'styled-components'
 import {Separator} from '../separater'
-import {LinkBlogPost} from '../Link'
+import {LinkBlogPost} from '../link'
 
 const StyledH2 = styled.h2`
   font-size: 2.2rem;

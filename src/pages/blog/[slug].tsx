@@ -1,12 +1,17 @@
 import React, {FC} from 'react'
+import styled from 'styled-components'
 import {readDataFile, listDataFiles} from '../../lib'
 import type {Post} from '../../types'
 
+const StyledImage = styled.img`
+  width: 100%;
+`
+
 const BlogPost: FC<{ post: Post }> = ({ post }) => {
   return (
-    <>
+    <article>
       <h2>{post.title}</h2>
-      <img src={post.image} alt={post.title}/>
+      <StyledImage src={post.image} alt={post.title}/>
       {post.chapters.map((chapter, index) => (
         <div key={index}>
           {chapter.title && (<h3>{chapter.title}</h3>)}
@@ -16,7 +21,7 @@ const BlogPost: FC<{ post: Post }> = ({ post }) => {
       <div>
         correct my grammar
       </div>
-    </>
+    </article>
   )
 }
 

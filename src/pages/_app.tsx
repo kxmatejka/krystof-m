@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Head from 'next/head'
 import {GlobalStyle} from '../components/global-style'
 import {Header} from '../components/header'
-import {LinkIndex} from '../components'
+import {LinkIndex, Footer} from '../components'
 
 const PageContainer = styled.div`
   display: flex;
@@ -42,7 +42,8 @@ const App = ({Component, pageProps}) => {
           <LinkIndex>
             <Header text='self-taught programmer from Eastern Europe explains things in poor English'/>
           </LinkIndex>
-          <Component {...pageProps} />
+          <Component {...pageProps}/>
+          <Footer/>
         </Container>
       </PageContainer>
     </>
