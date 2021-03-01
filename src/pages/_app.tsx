@@ -20,6 +20,15 @@ const Container = styled.div`
   flex-direction: column;
 `
 
+const HeaderBackground = styled.div`
+  height: 500px;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+  background: linear-gradient(0deg, #111c2a, #101a27, #101924, #0f1722, #0e151f, #0d131c, #0b111a, #090f17);
+`
+
 const App = ({Component, pageProps}) => {
   return (
     <>
@@ -27,6 +36,7 @@ const App = ({Component, pageProps}) => {
       <Head>
         <title>xxx</title>
       </Head>
+      <HeaderBackground/>
       <PageContainer>
         <Container>
           <LinkIndex>

@@ -3,6 +3,11 @@ import styled from 'styled-components'
 import {Separator} from '../separater'
 import {LinkBlogPost} from '../Link'
 
+const StyledH2 = styled.h2`
+  font-size: 2.2rem;
+  margin: 10px 0 20px 0;
+`
+
 const StyledSection = styled.section`
   @media only screen and (min-width: 1000px)  {
     transition: transform 1s ease;
@@ -10,13 +15,12 @@ const StyledSection = styled.section`
     &:hover {
       transition: transform 0.25s ease;
       transform: scale(1.1);
+
+      ${StyledH2} {
+        color: var(--highlight);
+      }
     }
   }
-`
-
-const StyledH2 = styled.h2`
-  font-size: 2.2rem;
-  margin: 10px 0 20px 0;
 `
 
 const StyledImgPreview = styled.p`
