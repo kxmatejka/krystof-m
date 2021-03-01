@@ -34,7 +34,7 @@ const App = ({Component, pageProps}) => {
     <>
       <GlobalStyle/>
       <Head>
-        <title>xxx</title>
+        <title>Kryštof Matějka</title>
       </Head>
       <HeaderBackground/>
       <PageContainer>

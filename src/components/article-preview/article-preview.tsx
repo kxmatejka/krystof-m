@@ -70,7 +70,7 @@ const StyledTagsItem = styled.li`
 `
 
 interface Props {
-  id: string
+  slug: string
   title: string
   image: string
   preview: string
@@ -78,10 +78,10 @@ interface Props {
   date: string
 }
 
-export const ArticlePreview: FC<Props> = ({id, title, image, preview, tags, date}) => {
+export const ArticlePreview: FC<Props> = ({slug, title, image, preview, tags, date}) => {
   return (
     <StyledSection>
-      <LinkBlogPost slug={id}>
+      <LinkBlogPost slug={slug}>
         <StyledH2>{title}</StyledH2>
         <StyledImg src={image} alt={title}/>
         <StyledImgPreview>{preview}</StyledImgPreview>
