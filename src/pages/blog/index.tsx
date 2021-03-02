@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 import {ArticlePreview} from '../../components/article-preview'
-import {readAllDataFiles} from '../../lib'
+import {getAllPostsMeta} from '../../lib'
 import {Layout} from './layout'
 import type {Post} from '../../types'
 
@@ -23,7 +23,7 @@ const Blog: FC<{posts: Post[]}> = ({posts}) => {
 }
 
 export const getStaticProps = async () => {
-  const posts = readAllDataFiles()
+  const posts = await getAllPostsMeta()
 
   return {
     props: {

@@ -1,0 +1,21 @@
+{
+  "slug": "very-long-chicken",
+  "title": "Very long chicken",
+  "image": "http://localhost:3000/sea.jpg",
+  "preview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  "tags": [
+    {
+      "slug": "very",
+      "title": "very"
+    },
+    {
+      "slug": "long",
+      "title": "long"
+    },
+    {
+      "slug": "chicken",
+      "title": "chicken"
+    }
+  ],
+  "created": "2021-03-01T20:32:31.554Z"
+}

@@ -1,1 +1,1 @@
-export * from './read-file'
+export * from './posts'

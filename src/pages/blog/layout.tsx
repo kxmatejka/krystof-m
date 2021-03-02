@@ -8,6 +8,7 @@ const PageContainer = styled.div`
   justify-content: center;
   padding: 0 20px;
   background: var(--dark);
+  min-height: 100%;
 `
 
 const Container = styled.div`
@@ -17,15 +18,6 @@ const Container = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-`
-
-const HeaderBackground = styled.div`
-  height: 500px;
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-  top: 0;
-  background: linear-gradient(0deg, #111c2a, #101a27, #101924, #0f1722, #0e151f, #0d131c, #0b111a, #090f17);
 `
 
 export const Layout: FC = ({children}) => {
