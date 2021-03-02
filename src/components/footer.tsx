@@ -50,7 +50,7 @@ const links = [
     title: 'github',
   },
   {
-    href: '/rss',
+    href: '/blog/rss',
     title: 'rss',
   },
 ]

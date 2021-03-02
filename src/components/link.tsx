@@ -26,9 +26,9 @@ export const Link: FC<Props> = ({ href, children  }) => {
   )
 }
 
-export const LinkIndex: FC = ({children}) => {
+export const LinkBlog: FC = ({children}) => {
   return (
-    <Link href={'/'}>
+    <Link href={'/blog'}>
       {children}
     </Link>
   )

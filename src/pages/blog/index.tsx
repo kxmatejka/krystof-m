@@ -1,9 +1,35 @@
-import React from 'react'
+import React, {FC} from 'react'
+import {ArticlePreview} from '../../components/article-preview'
+import {readAllDataFiles} from '../../lib'
+import {Layout} from './layout'
+import type {Post} from '../../types'
 
-const Blog = () => {
+const Blog: FC<{posts: Post[]}> = ({posts}) => {
   return (
-    <div>Blog</div>
+    <Layout>
+      {posts.map((post) => (
+        <ArticlePreview
+          key={post.slug}
+          slug={post.slug}
+          title={post.title}
+          image={post.image}
+          preview={post.preview}
+          tags={post.tags.map((tag) => tag.title)}
+          date={post.created}
+        />
+      ))}
+    </Layout>
   )
+}
+
+export const getStaticProps = async () => {
+  const posts = readAllDataFiles()
+
+  return {
+    props: {
+      posts,
+    },
+  }
 }
 
 export default Blog

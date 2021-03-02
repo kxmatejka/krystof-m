@@ -1,6 +1,11 @@
 import {createGlobalStyle} from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
+  html, body, #__next {
+    height: 100%;
+    min-height: 100%;
+  }
+
   body {
     --light: #eee;
     --dark: #111c2a;
@@ -9,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 
     margin: 0;
     padding: 0;
-    background: var(--dark);
+    background: #ced2d7;
     color: var(--light);
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
