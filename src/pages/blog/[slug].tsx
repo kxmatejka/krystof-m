@@ -2,6 +2,7 @@ import React, {FC} from 'react'
 import styled from 'styled-components'
 import {getPostBySlug, getAllPostsSlugs} from '../../lib'
 import {Layout} from './layout'
+import {GitHubButton, TwitterButton} from '../../components'
 import type {Post} from '../../types'
 
 const StyledImage = styled.img`
@@ -15,7 +16,10 @@ const BlogPost: FC<{ post: Post }> = ({ post }) => {
         <h2>{post.title}</h2>
         <StyledImage src={post.image} alt={post.title}/>
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        <div>correct my grammar</div>
+        <div>
+          <TwitterButton/>
+          <GitHubButton/>
+        </div>
       </article>
     </Layout>
   )

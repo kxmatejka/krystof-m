@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    --light: #eee;
+    --light: #e8e8e8;
     --dark: #111c2a;
     --dark-low-contrast: #2f353d;
     --highlight: #1cbb64;

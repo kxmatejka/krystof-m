@@ -1,2 +1,5 @@
 export * from './link'
 export * from './footer'
+export * from './svg-base64-img'
+export * from './icons'
+export * from './social'

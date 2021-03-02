@@ -62,11 +62,11 @@ const StyledTagsItem = styled.li`
   color: var(--dark);
   border-radius: 5px;
   font-weight: 700;
-  background: var(--highlight);
+  background: var(--light);
   transition: background ease 0.3s;
 
   &:hover {
-    background: var(--light);
+    background: var(--highlight);
   }
 `
 
