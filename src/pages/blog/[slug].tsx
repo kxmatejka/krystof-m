@@ -15,7 +15,7 @@ const BlogPost: FC<{ post: Post }> = ({ post }) => {
       <article>
         <h2>{post.title}</h2>
         <StyledImage src={post.image} alt={post.title}/>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div dangerouslySetInnerHTML={{__html: post.content}}/>
         <div>
           <TwitterButton/>
           <GitHubButton/>
