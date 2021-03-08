@@ -41,3 +41,11 @@ export const LinkBlogPost: FC<{slug: string}> = ({slug, children}) => {
     </Link>
   )
 }
+
+export const LinkBlogPage: FC<{pageNumber: number}> = ({pageNumber, children}) => {
+  return (
+    <Link href={pageNumber > 0 ? `/blog/page/${pageNumber}` : '/blog'}>
+      {children}
+    </Link>
+  )
+}

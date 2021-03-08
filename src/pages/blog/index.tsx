@@ -1,33 +1,22 @@
 import React, {FC} from 'react'
-import {ArticlePreview} from '../../components/article-preview'
-import {getAllPostsMeta} from '../../lib'
-import {Layout} from './layout'
+import {getPosts} from '../../model'
+import {PostsList} from './posts-list'
 import type {Post} from '../../types'
 
-const Blog: FC<{posts: Post[]}> = ({posts}) => {
+const Blog: FC<{posts: Post[], pageNumber: number, hasNextPage: boolean}> = ({posts, pageNumber, hasNextPage}) => {
   return (
-    <Layout>
-      {posts.map((post) => (
-        <ArticlePreview
-          key={post.slug}
-          slug={post.slug}
-          title={post.title}
-          image={post.image}
-          preview={post.preview}
-          tags={post.tags.map((tag) => tag.title)}
-          date={post.created}
-        />
-      ))}
-    </Layout>
+    <PostsList posts={posts} pageNumber={pageNumber} hasNextPage={hasNextPage}/>
   )
 }
 
 export const getStaticProps = async () => {
-  const posts = await getAllPostsMeta()
+  const result = await getPosts()
 
   return {
     props: {
-      posts,
+      posts: result.posts,
+      hasNextPage: result.hasNextPage,
+      pageNumber: 0,
     },
   }
 }

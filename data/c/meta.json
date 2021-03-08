@@ -1,0 +1,21 @@
+{
+  "slug": "c",
+  "title": "CCC",
+  "image": "http://localhost:3000/sea.jpg",
+  "preview": "ccc",
+  "tags": [
+    {
+      "slug": "very",
+      "title": "very"
+    },
+    {
+      "slug": "long",
+      "title": "long"
+    },
+    {
+      "slug": "chicken",
+      "title": "chicken"
+    }
+  ],
+  "created": "2021-03-05T20:32:31.554Z"
+}

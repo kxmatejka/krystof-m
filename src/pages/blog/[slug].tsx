@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 import styled from 'styled-components'
-import {getPostBySlug, getAllPostsSlugs} from '../../lib'
+import {getPostBySlug, getAllPostsSlugs} from '../../model'
 import {Layout} from './layout'
 import {GitHubButton, TwitterButton} from '../../components'
 import type {Post} from '../../types'
