@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/kxmatejka/next-template#readme",
   "dependencies": {
+    "framer-motion": "^3.10.2",
     "moment": "^2.29.1",
     "next": "10",
     "react": "17",
