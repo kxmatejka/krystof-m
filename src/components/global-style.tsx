@@ -14,8 +14,8 @@ export const GlobalStyle = createGlobalStyle`
 
     margin: 0;
     padding: 0;
-    background: #ced2d7;
-    color: var(--light);
+    /*background: #ced2d7;*/
+    color: var(--dark);
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
   }

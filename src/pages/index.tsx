@@ -1,7 +1,19 @@
-import React, {FC} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import styled from 'styled-components'
-import {motion} from 'framer-motion'
+import {motion, useAnimation, AnimationControls} from 'framer-motion'
 import {SvgBase64Img, TYPESCRIPT_ICON, REACT_ICON, NODEJS_ICON, AWS_ICON} from '../components'
+
+const useWindowDimensions = () => {
+  const width = window.innerWidth
+  const height = window.innerHeight
+
+  // td add resize event
+
+  return {
+    width,
+    height,
+  }
+}
 
 const Container = styled(motion.div)`
   display: flex;
@@ -9,15 +21,18 @@ const Container = styled(motion.div)`
   justify-content: center;
   align-items: center;
   height: 100%;
+  position: relative;
+  overflow: hidden;
 `
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled(motion.div)`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  z-index: 1;
 `
 
 interface GapProps {
@@ -34,7 +49,7 @@ const Heading = styled(motion.h1)`
   font-size: 3rem;
   margin: 0;
   text-align: center;
-  color: var(--dark);
+  color: var(--light);
 `
 
 const IconsContainer = styled.div`
@@ -74,7 +89,6 @@ const StyledCircle = styled(motion.div)`
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  background: var(--dark);
   color: var(--light);
   font-weight: bold;
   display: flex;
@@ -84,46 +98,42 @@ const StyledCircle = styled(motion.div)`
   align-items: center;
 `
 
-const Circle: FC = ({children}) => {
+const Circle: FC<{animate: AnimationControls}> = ({children, animate}) => {
   return (
     <StyledCircle
       initial={{
         opacity: 0,
       }}
-      variants={{
-        open: {
-          opacity: 1,
-        },
-      }}
+      animate={animate}
     >
       {children}
     </StyledCircle>
   )
 }
 
-const CirclesVariants = {
-  open: {
-    transition: {
-      staggerChildren: 0.35,
-    },
-  },
-}
-
-const CvContainer = styled(motion.div)`
-  height: 200px;
-`
-
 const StyledLinkCv = styled(motion.div)`
   opacity: 1;
   color: var(--dark);
   font-weight: bold;
-  
+
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: center;
+
+  background: var(--light);
+  clip-path: circle(0px at 960px 1028px);
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  z-index: 2;
+  
+  & > label {
+    margin-bottom: 20px;
+  }
 `
 
-const Arrow = styled.div`
+const Arrow = styled(motion.div)`
   width: 10px;
   height: 10px;
   border-top: 3px solid var(--dark);
@@ -131,83 +141,166 @@ const Arrow = styled.div`
   border-bottom: 0;
   border-left: 0;
 
-  transform: rotate(135deg);
+  transform: rotate(-45deg);
 `
 
-const BottomArrow = styled(Arrow)`
-  margin-top: -5px;
+const InnerLinkCvContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
 `
 
-const LinkCv = () => {
+const LinkCv: FC<{animate: AnimationControls, animateLabel: AnimationControls, animateArrow: AnimationControls, onClick: () => void}> = ({animate, animateLabel, animateArrow, onClick}) => {
   return (
-    <CvContainer
-      initial={{
-        opacity: 0,
-      }}
-      variants={{
-        open: {
-          opacity: 1,
-        },
-      }}
+    <StyledLinkCv
+      animate={animate}
+      onTap={onClick}
     >
-      <StyledLinkCv
-        variants={{
-          open: {
-            opacity: [1, 1],
-            y: [0, 25, 0],
-          },
-        }}
-        transition={{
-          duration: 2,
-          loop: Infinity,
-        }}
-      >
-        <label>Full CV</label>
-        <Arrow/>
-        <BottomArrow/>
-      </StyledLinkCv>
-    </CvContainer>
+      <InnerLinkCvContainer>
+        <motion.div
+          animate={animateArrow}
+        >
+          <Arrow/>
+        </motion.div>
+        <Gap height='10px'/>
+        <motion.label
+          animate={animateLabel}
+        >Full CV</motion.label>
+      </InnerLinkCvContainer>
+    </StyledLinkCv>
   )
 }
 
+const CircleBackground = styled(motion.div)`
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--dark);
+  clip-path: circle(0px at 0px 0px);
+`
+
+const opacityAnimationConfig = {
+  opacity: 1,
+}
+
+const opacityAnimationOverride = {
+  duration: 0.35,
+}
+
 const Home: FC = () => {
+  //const {width, height} = useWindowDimensions()
+  const backgroundAnimation = useAnimation()
+  const headerAnimation = useAnimation()
+  const iconReactAnimation = useAnimation()
+  const iconTsAnimation = useAnimation()
+  const iconNodejsAnimation = useAnimation()
+  const iconAwsAnimation = useAnimation()
+  const cvLinkAnimation = useAnimation()
+  const clickCvLinkLabelAnimation = useAnimation()
+  const cvLinkArrowAnimation = useAnimation()
+
+  const runInitialAnimation = async () => {
+    await backgroundAnimation.start({
+      background: 'var(--dark)',
+      clipPath: 'circle(2500px at 0px 0px)',
+    }, {
+      duration: 1,
+    })
+
+    await headerAnimation.start(opacityAnimationConfig, opacityAnimationOverride)
+    await iconReactAnimation.start(opacityAnimationConfig, opacityAnimationOverride)
+    await iconTsAnimation.start(opacityAnimationConfig, opacityAnimationOverride)
+    await iconNodejsAnimation.start(opacityAnimationConfig, opacityAnimationOverride)
+    await iconAwsAnimation.start(opacityAnimationConfig, opacityAnimationOverride)
+
+    await cvLinkAnimation.start({
+      clipPath: 'circle(100px at 960px 1006px)',
+    })
+
+    while (1) {
+      await cvLinkArrowAnimation.start({
+        y: -10,
+      }, {
+        duration: 1,
+      })
+      await cvLinkArrowAnimation.start({
+        y: 0,
+      }, {
+        duration: 1,
+      })
+    }
+  }
+
+  const onClickCv = async () => {
+    await Promise.all([
+      clickCvLinkLabelAnimation.start({
+        opacity: 0,
+      }, {
+        duration: 0.3,
+      }),
+      cvLinkArrowAnimation.start({
+        opacity: 0,
+      }, {
+        duration: 0.3,
+      }),
+      cvLinkAnimation.start({
+        clipPath: 'circle(2000px at 960px 1006px)',
+      }, {
+        duration: 1,
+      }),
+    ])
+  }
+
+  useEffect(() => {
+    runInitialAnimation()
+  }, [])
+
   return (
-    <Container
-      animate='open'
-      variants={CirclesVariants}
-    >
+    <Container>
+      <CircleBackground
+        animate={backgroundAnimation}
+      />
       <HeaderContainer>
         <Heading
           initial={{
             opacity: 0,
           }}
-          variants={{
-            open: {
-              opacity: 1,
-            },
-          }}
+          animate={headerAnimation}
         >Kryštof Matějka</Heading>
         <Gap height='20px'/>
         <IconsContainer>
-          <Circle>
+          <Circle animate={iconReactAnimation}>
             <label>I love</label>
+            <Gap height='5px'/>
             <ReactIcon/>
           </Circle>
-          <Circle>
+          <Circle animate={iconTsAnimation}>
             <label>I like</label>
+            <Gap height='5px'/>
             <TypescriptIcon/>
           </Circle>
-          <Circle>
+          <Circle animate={iconNodejsAnimation}>
             <label>I do</label>
+            <Gap height='5px'/>
             <NodeJsIcon/>
           </Circle>
-          <Circle>
-            <label>&</label>
+          <Circle animate={iconAwsAnimation}>
+            <label>and also</label>
+            <Gap height='5px'/>
             <AwsIcon/>
           </Circle>
         </IconsContainer>
       </HeaderContainer>
-      <LinkCv/>
+      <LinkCv
+        animate={cvLinkAnimation}
+        animateLabel={clickCvLinkLabelAnimation}
+        animateArrow={cvLinkArrowAnimation}
+        onClick={() => onClickCv()}
+      />
     </Container>
   )
 }
