@@ -12,7 +12,7 @@ const Container = styled.div`
 
 const Heading = styled.h2`
   color: #555555;
-  font-size: 1.0rem;
+  font-size: 1.2rem;
 
   width: ${TIMELINE_WIDTH}px;
   text-align: center;
@@ -34,7 +34,6 @@ const StyledTimeMark = styled.div`
   font-weight: bold;
   color: #555555;
   border: 2px #d5d5d5 solid;
-  //box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 `
 
 const StyledTimeMarkChildern = styled.div`
@@ -48,6 +47,9 @@ const StyledTimeMarkChildern = styled.div`
 
   & > img {
     height: 18px;
+  }
+
+  & > img:not(:last-child) {
     margin-right: 5px;
   }
 `
@@ -61,14 +63,6 @@ const TimeMark: FC<{year: number|string}> = ({year, children }) => {
       <StyledTimeMarkChildern>
         {children}
       </StyledTimeMarkChildern>
-    </div>
-  )
-}
-
-const Description = () => {
-  return (
-    <div>
-
     </div>
   )
 }
@@ -131,7 +125,8 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+          <p>Momentálně vyvíjím software pro distribuci a konzumaci video obsahu pod značkou <strong>Tivio</strong> v rámci firmy <strong>nangu.TV</strong>.</p>
+          <p>To v praxi obnáší tvorbu firebase cloud funkcí pro scraping a transformaci dat a tvorbu UI widgetů pro React, React Native a Flutter.</p>
         </TimeMarkDescription>
       </TimeMarkContainer>
       <TimeMarkContainer>
@@ -145,8 +140,9 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-          <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <p>Do roku 2020 jsem pracoval jako team-leader v prestižním mediálním domu <strong>Economia a.s.</strong></p>
+          <p>Organizoval jsem sprinty, mentoroval tým a odpovídal za technickou realizaci produktového zadání.</p>
+          <p>Navrhoval jsem přepis služby <strong>vareni.cz</strong> z php do js. Nová aplikace byla napsána v Typescriptu s použitím Reactu na FE a node.js na BE. Infrastruktura byla postavena v AWS.</p>
         </TimeMarkDescription>
       </TimeMarkContainer>
       <TimeMarkContainer>
@@ -159,8 +155,10 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-          <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <p>Do roku 2018 jsem pracoval jako programátor v <strong>Economia a.s.</strong></p>
+          <p>První projekt na kterém jsem pracoval bylo interní api v php pro správu zákaznických účtů a předplatného.</p>
+          <p>Dále jsem se účastnil přepisu homepage portálu <strong>centrum.cz</strong> z php do js. Kde byl použit React pro FE a node.js pro BE. Infrastruktura byla postavena v AWS.</p>
+          <p>V mezičase jsem pracoval také na rozšíření do prohlížeče a integraci video enkodéru třetí strany do in-house CMS pomocí serverless architektury.</p>
         </TimeMarkDescription>
       </TimeMarkContainer>
       <TimeMarkContainer>
@@ -173,8 +171,9 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-          <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <p>Ve své první práci pro firmu <strong>WS trends s.r.o</strong> jsem programoval embedované zařízení v jazyku python pro automatický odečet elektrické spotřeby.</p>
+          <p>Pro ukládání naměřených dat jsem vytvořil server v node.js, který přeukládal data do databáze InterSystems Caché.</p>
+          <p>Pro konfiguraci a monitoring zařízení jsem napsal aplikaci v php.</p>
         </TimeMarkDescription>
       </TimeMarkContainer>
       <Heading>High School</Heading>
@@ -187,8 +186,8 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-          <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <p>V roce 2014 jsem maturoval na střední škole zaměřené na počítačové sítě, databáze a programování. V rámci praktické zkoušky jsem naprogramoval CMS s vlatní MVC implementací v jazyce php.</p>
+          <p>Během studia jsem si přividělával kódováním šablon pro redakční systém php&#8209;funsion.</p>
         </TimeMarkDescription>
       </TimeMarkContainer>
     </Container>
