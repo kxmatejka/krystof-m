@@ -221,6 +221,7 @@ const Home: FC = () => {
       clipPath: 'circle(100px at 960px 1006px)',
     })
 
+    // eslint-disable-next-line no-constant-condition
     while (1) {
       await cvLinkArrowAnimation.start({
         y: -10,
