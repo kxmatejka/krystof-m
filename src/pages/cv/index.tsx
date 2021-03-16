@@ -171,7 +171,7 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>Ve své první práci pro firmu <strong>WS trends s.r.o</strong> jsem programoval embedované zařízení v jazyku python pro automatický odečet elektrické spotřeby.</p>
+          <p>Ve své první práci pro firmu <strong>WS trends s.r.o</strong> jsem programoval embedované zařízení v jazyku python pro automatický odečet spotřeby elektrické energie.</p>
           <p>Pro ukládání naměřených dat jsem vytvořil server v node.js, který přeukládal data do databáze InterSystems Caché.</p>
           <p>Pro konfiguraci a monitoring zařízení jsem napsal aplikaci v php.</p>
         </TimeMarkDescription>
