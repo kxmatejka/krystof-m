@@ -2,6 +2,7 @@ import React, {FC} from 'react'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
 import {ReactIcon, TypescriptIcon, NodeJsIcon, AwsIcon, PhpIcon, PythonIcon, FirebaseIcon, FlutterIcon} from '../../components'
+import {useTranslation} from 'react-i18next'
 
 const TIMELINE_WIDTH = 120
 
@@ -109,9 +110,29 @@ const TimeMarkLeftContainer = styled.div`
   flex-direction: column;
 `
 
+const TransParek = () => {
+  const {t, i18n} = useTranslation()
+
+  return (
+    <div>
+      <button onClick={() => i18n.changeLanguage('en')}>en</button>
+      <button onClick={() => i18n.changeLanguage('cs')}>cs</button>
+    </div>
+  )
+}
+
+const T: FC<{code: string, noEscape?: boolean}> = ({code, noEscape}) => {
+  const {t} = useTranslation()
+
+  return (noEscape)
+    ? <span dangerouslySetInnerHTML={{__html: t(code)}}/>
+    : t(code)
+}
+
 const Cv = () => {
   return (
     <Container>
+      <TransParek/>
       <Heading>Experience</Heading>
       <Timeline height='30px'/>
       <TimeMarkContainer>
@@ -125,8 +146,8 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>Momentálně vyvíjím software pro distribuci a konzumaci video obsahu pod značkou <strong>Tivio</strong> v rámci firmy <strong>nangu.TV</strong>.</p>
-          <p>To v praxi obnáší tvorbu firebase cloud funkcí pro scraping a transformaci dat a tvorbu UI widgetů pro React, React Native a Flutter.</p>
+          <p><strong>Tivio</strong></p>
+          <p><T code='cv.2021.p1'/></p>
         </TimeMarkDescription>
       </TimeMarkContainer>
       <TimeMarkContainer>
@@ -140,9 +161,9 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>Do roku 2020 jsem pracoval jako team-leader v prestižním mediálním domu <strong>Economia a.s.</strong></p>
-          <p>Organizoval jsem sprinty, mentoroval tým a odpovídal za technickou realizaci produktového zadání.</p>
-          <p>Navrhoval jsem přepis služby <strong>vareni.cz</strong> z php do js. Nová aplikace byla napsána v Typescriptu s použitím Reactu na FE a node.js na BE. Infrastruktura byla postavena v AWS.</p>
+          <p><strong>Economia a.s. - Team leader</strong></p>
+          <p><T code='cv.2020.p1'/></p>
+          <p><T code='cv.2020.p2'/></p>
         </TimeMarkDescription>
       </TimeMarkContainer>
       <TimeMarkContainer>
@@ -155,10 +176,11 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>Do roku 2018 jsem pracoval jako programátor v <strong>Economia a.s.</strong></p>
-          <p>První projekt na kterém jsem pracoval bylo interní api v php pro správu zákaznických účtů a předplatného.</p>
-          <p>Dále jsem se účastnil přepisu homepage portálu <strong>centrum.cz</strong> z php do js. Kde byl použit React pro FE a node.js pro BE. Infrastruktura byla postavena v AWS.</p>
-          <p>V mezičase jsem pracoval také na rozšíření do prohlížeče a integraci video enkodéru třetí strany do in-house CMS pomocí serverless architektury.</p>
+          <p><strong>Economia a.s. - <T code='cv.2018.title'/></strong></p>
+          <p><T code='cv.2018.p1'/></p>
+          <p><T code='cv.2018.p2'/></p>
+          <p><T code='cv.2018.p3'/></p>
+          <p><T code='cv.2018.p4'/></p>
         </TimeMarkDescription>
       </TimeMarkContainer>
       <TimeMarkContainer>
@@ -171,9 +193,10 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>Ve své první práci pro firmu <strong>WS trends s.r.o</strong> jsem programoval embedované zařízení v jazyku python pro automatický odečet spotřeby elektrické energie.</p>
-          <p>Pro ukládání naměřených dat jsem vytvořil server v node.js, který přeukládal data do databáze InterSystems Caché.</p>
-          <p>Pro konfiguraci a monitoring zařízení jsem napsal aplikaci v php.</p>
+          <p><strong>WS trends s.r.o.</strong></p>
+          <p><T code='cv.2016.p1'/></p>
+          <p><T code='cv.2016.p2'/></p>
+          <p><T code='cv.2016.p3'/></p>
         </TimeMarkDescription>
       </TimeMarkContainer>
       <Heading>High School</Heading>
@@ -186,8 +209,10 @@ const Cv = () => {
           <Timeline/>
         </TimeMarkLeftContainer>
         <TimeMarkDescription>
-          <p>V roce 2014 jsem maturoval na střední škole zaměřené na počítačové sítě, databáze a programování. V rámci praktické zkoušky jsem naprogramoval CMS s vlatní MVC implementací v jazyce php.</p>
-          <p>Během studia jsem si přividělával kódováním šablon pro redakční systém php&#8209;funsion.</p>
+          <p><strong>Střední průmyslová škola Varnsdorf</strong></p>
+          <p><T code='cv.highSchool.p1'/></p>
+          <p><T code='cv.highSchool.p2'/></p>
+          <p><T code='cv.highSchool.p3'/></p>
         </TimeMarkDescription>
       </TimeMarkContainer>
     </Container>

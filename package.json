@@ -21,11 +21,15 @@
   },
   "homepage": "https://github.com/kxmatejka/next-template#readme",
   "dependencies": {
+    "@types/i18next": "^13.0.0",
+    "@types/react-i18next": "^8.1.0",
     "framer-motion": "^3.10.2",
+    "i18next": "^19.9.2",
     "moment": "^2.29.1",
     "next": "10",
     "react": "17",
     "react-dom": "17",
+    "react-i18next": "^11.8.10",
     "styled-components": "5"
   },
   "devDependencies": {
