@@ -33,3 +33,5 @@ export const Layout: FC = ({children}) => {
     </PageContainer>
   )
 }
+
+export default () => null

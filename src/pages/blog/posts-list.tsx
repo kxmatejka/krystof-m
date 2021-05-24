@@ -59,3 +59,5 @@ export const PostsList: FC<{ posts: Post[], pageNumber: number, hasNextPage: boo
     </Layout>
   )
 }
+
+export default () => null

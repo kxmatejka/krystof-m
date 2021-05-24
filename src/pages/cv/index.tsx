@@ -29,6 +29,10 @@ const Container = styled.div`
   @media only screen and (max-width: 400px) {
     padding: 0 15px;
   }
+
+  @media print {
+    padding: 0;
+  }
 `
 
 const Heading = styled.h2`
@@ -37,6 +41,10 @@ const Heading = styled.h2`
 
   width: ${TIMELINE_WIDTH}px;
   text-align: center;
+
+  @media print {
+    text-align: left;
+  }
 `
 
 const StyledTimeMark = styled.div`
@@ -55,9 +63,18 @@ const StyledTimeMark = styled.div`
   font-weight: bold;
   color: #555555;
   border: 2px #d5d5d5 solid;
+
+  @media print {
+    border: 0;
+    text-align: left;
+
+    width: ${TIMELINE_WIDTH / 2}px;
+    
+    margin: 0px;
+  }
 `
 
-const StyledTimeMarkChildern = styled.div`
+const StyledTimeMarkChildren = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
@@ -73,6 +90,12 @@ const StyledTimeMarkChildern = styled.div`
   & > img:not(:last-child) {
     margin-right: 5px;
   }
+
+  @media print {
+    display: none;
+
+    width: ${TIMELINE_WIDTH / 2}px;
+  }
 `
 
 const TimeMark: FC<{ year: number | string }> = ({year, children}) => {
@@ -81,9 +104,9 @@ const TimeMark: FC<{ year: number | string }> = ({year, children}) => {
       <StyledTimeMark>
         {year}
       </StyledTimeMark>
-      <StyledTimeMarkChildern>
+      <StyledTimeMarkChildren>
         {children}
-      </StyledTimeMarkChildern>
+      </StyledTimeMarkChildren>
     </div>
   )
 }
@@ -94,6 +117,10 @@ const TimelineContainer = styled.div`
   justify-content: center;
 
   flex-grow: 1;
+
+  @media print {
+    width: ${TIMELINE_WIDTH / 2}px;
+  }
 `
 
 const StyledTimeline = styled.div<{ height?: string }>`
@@ -123,6 +150,10 @@ const TimeMarkDescription = styled.div`
   & > p {
     margin: 0 0 15px 0;
   }
+
+  @media print {
+    margin: 10px;
+  }
 `
 
 const TimeMarkLeftContainer = styled.div`
@@ -133,6 +164,10 @@ const TimeMarkLeftContainer = styled.div`
 const TransContainer = styled.div`
   position: fixed;
   right: 0;
+
+  @media print {
+    display: none;
+  }
 `
 
 const ImgButton = styled.img<{ inactive?: boolean }>`
@@ -174,6 +209,17 @@ const CompanyLink = styled.a`
   &:hover {
     color: #0b439a;
   }
+
+  @media print {
+    color: #000;
+    text-decoration: none;
+  }
+`
+
+const MegaHeading = styled.h1`
+  @media print {
+    margin: 25px 0 50px 0;
+  }
 `
 
 const T: FC<{ code: string, noEscape?: boolean }> = ({code, noEscape}) => {
@@ -189,8 +235,7 @@ const Cv = () => {
     <>
       <TransParek/>
       <Container>
-        <h1>Kryštof Matějka</h1>
-        <p>View as: HTML | PDF</p>
+        <MegaHeading>Kryštof Matějka</MegaHeading>
         <Heading><T code='cv.timelineTitles.experience'/></Heading>
         <Timeline height='30px'/>
         <TimeMarkContainer>
