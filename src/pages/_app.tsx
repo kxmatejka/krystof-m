@@ -26,7 +26,7 @@ i18n
             },
             '2021': {
               p1: 'Development of serverless backend in google firebase',
-              p2: 'Development of flutter apps',
+              p2: 'Development of apps for the flutter platform',
             },
             '2020': {
               p1: 'Design of rewrite of vareni.cz from PHP to JS and migrate from on-premise to AWS',
@@ -60,7 +60,7 @@ i18n
             },
             '2021': {
               p1: 'Vývoj serverless backendu v google firebase',
-              p2: 'Vývoj aplikací ve flutteru',
+              p2: 'Vývoj aplikací pro platformu flutter',
             },
             '2020': {
               p1: 'Návrh přepisu služby vareni.cz z PHP do JS a migrace z on-premise do AWS.',

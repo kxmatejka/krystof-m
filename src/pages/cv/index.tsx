@@ -15,19 +15,19 @@ import {useTranslation} from 'react-i18next'
 const TIMELINE_WIDTH = 130
 
 const Container = styled.div`
-  padding: 50px;
+  padding: 0 50px;
   max-width: 700px;
 
   @media only screen and (max-width: 600px) {
-    padding: 30px;
+    padding: 0 30px;
   }
 
   @media only screen and (max-width: 500px) {
-    padding: 20px;
+    padding: 0 20px;
   }
 
   @media only screen and (max-width: 400px) {
-    padding: 15px;
+    padding: 0 15px;
   }
 `
 
@@ -189,6 +189,8 @@ const Cv = () => {
     <>
       <TransParek/>
       <Container>
+        <h1>Kryštof Matějka</h1>
+        <p>View as: HTML | PDF</p>
         <Heading><T code='cv.timelineTitles.experience'/></Heading>
         <Timeline height='30px'/>
         <TimeMarkContainer>
