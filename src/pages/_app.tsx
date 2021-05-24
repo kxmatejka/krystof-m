@@ -4,74 +4,84 @@ import i18n from 'i18next'
 import {initReactI18next} from 'react-i18next'
 import {GlobalStyle} from '../components/global-style'
 
+const getDefaultLang = () => {
+  return (globalThis.navigator&& navigator.language === 'cs') ? 'cs' : 'en'
+}
+
 i18n
   .use(initReactI18next)
   .init({
     resources: {
       en: {
         translation: {
-          title: 'welcome',
           cv: {
+            timelineTitles: {
+              experience: 'Experience',
+              courses: 'Courses',
+              highSchool: 'High School',
+            },
+            titles: {
+              programmer: 'Programmer',
+              teamLeader: 'Team Leader',
+            },
             '2021': {
-              p1: 'Programmed firebase cloud functions for data transformation. Widgets for react, react native and flutter for video playback.',
+              p1: 'Development of serverless backend in google firebase',
+              p2: 'Development of flutter apps',
             },
             '2020': {
-              p1: 'Designed rewrite of vareni.cz from php to js (typescript, react, node.js) and migrate it from on-premise into AWS.',
-              p2: 'Organized sprints, mentor team, was responsible for technical realization of product requirements.',
+              p1: 'Design of rewrite of vareni.cz from PHP to JS and migrate from on-premise to AWS',
+              p2: 'Sprint planning, mentoring the team, responsibility for the technical implementation of product requirements',
             },
             '2018': {
-              title: 'Programmer',
-              p1: 'Rewrite homepage of the centrum.cz from php to js (react, node.js) and migrate it from on-premise into AWS.',
-              p2: 'Programmed an internal api in php for management users accounts and their subscriptions',
-              p3: 'Serverless integration of external video encoder into in-house CMS.',
-              p4: 'Browser extension for aggregation of news articles',
+              p1: 'Rewrite of centrum.cz homepage from PHP to JS and migrate from on-premise to AWS',
+              p2: 'Development of internal API for user account management',
             },
             '2016': {
-              p1: 'Programmed an embedded device in python for automatic measurement of electricity consumption.',
-              p2: 'Server in node.js for saving measured data into InterSystems Caché database.',
-              p3: 'Application in php for monitoring and configuration of the devices.',
+              p1: 'Development of an embedded device for automatic measurement of electricity consumption',
             },
             highSchool: {
-              p1: 'Graduated from computer networks, databases and programming.',
-              p2: 'Practical exam was CMS in php with own MVC implementation.',
-              p3: 'During the studies I make money by coding templates for CMS php-fusion.',
+              p1: 'Graduated from computer networks, databases and programming',
+              p2: 'Practical exam was a CMS in PHP with its own implementation of MVC',
             },
           },
         },
       },
       cs: {
         translation: {
-          title: 'ahoj lidi',
           cv: {
+            timelineTitles: {
+              experience: 'Zkušenosti',
+              courses: 'Kurzy',
+              highSchool: 'Střední škola',
+            },
+            titles: {
+              programmer: 'Programátor',
+              teamLeader: 'Team Leader',
+            },
             '2021': {
-              p1: 'Programoval jsem firebase cloud funkce pro transformace a dat. Widgety pro react, react native a flutter pro přehrávání videa.',
+              p1: 'Vývoj serverless backendu v google firebase',
+              p2: 'Vývoj aplikací ve flutteru',
             },
             '2020': {
-              p1: 'Navrhoval jsem přepis služby vareni.cz z php do js s použitím typescriptu, reactu, node.js a zmigrování z on-premise do AWS.',
-              p2: 'Organizoval jsem sprinty, mentoroval tým a odpovídal za technickou realizaci produktového zadání.',
+              p1: 'Návrh přepisu služby vareni.cz z PHP do JS a migrace z on-premise do AWS.',
+              p2: 'Organizace sprintů, mentoring týmu, odpovědnost za technickou realizaci produktových požadavků',
             },
             '2018': {
-              title: 'Programátor',
-              p1: 'Přepisoval jsem homepage centrum.cz z php do js (react, node.js) a migroval z on-premise do AWS.',
-              p2: 'Programoval jsem interní api v php pro správu zákaznických účtů a předplatného.',
-              p3: 'Serverless integraci externího video enkodéru s in-house CMS.',
-              p4: 'Rozšíření do prohlížeče pro agregaci článků.',
+              p1: 'Přepis centrum.cz homepage z PHP do JS a migrace z on-premise do AWS',
+              p2: 'Vývoj interního API pro správu uživatelských účtů',
             },
             '2016': {
-              p1: 'Programoval jsem embedované zařízení v pythonu pro automatický odečet spotřeby elektrické energie.',
-              p2: 'Server v node.js pro ukládání naměřených dat do databáze InterSystems Caché.',
-              p3: 'Aplikaci v php pro monitoring a konfiguraci zařízení.',
+              p1: 'Vývoj embedovatelného zařízení pro automatický odečet elektrické energie',
             },
             highSchool: {
-              p1: 'V roce 2014 jsem odmaturoval z počítačových sítí, databází a programování.',
-              p2: 'Pro praktickou zkoušku jsem vytvořil CMS v php s vlastní MVC implementací.',
-              p3: 'Během studia jsem si přivydělával kódováním šablon pro redakční systém php-funcion.',
+              p1: 'Odmaturoval jsem z počítačových sítí, databází a programování',
+              p2: 'Pro praktickou zkoušku jsem vytvořil CMS v PHP s vlastní MVC implementací',
             },
           },
         },
       },
     },
-    lng: 'cs',
+    lng: getDefaultLang(),
   })
 
 const App = ({Component, pageProps}) => {
