@@ -15,7 +15,7 @@ import {useTranslation} from 'react-i18next'
 const TIMELINE_WIDTH = 130
 
 const Container = styled.div`
-  padding: 0 50px;
+  padding: 0 50px 20px 50px;
   max-width: 700px;
 
   @media only screen and (max-width: 600px) {
@@ -262,16 +262,34 @@ const SocialIconContainer = styled.div`
   margin-bottom: 25px;
 `
 
+const HeaderContainer = styled.div`
+  display: flex;
+`
+
+const Photo = styled.img`
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+`
+
 const Cv = () => {
   return (
     <>
       <Container>
         <TransParek/>
-        <MegaHeading>Kryštof Matějka</MegaHeading>
-        <SocialIconContainer>
-          <a href='https://www.linkedin.com/in/kry%C5%A1tof-mat%C4%9Bjka-a16a3182/' target='_blank'><SocialIcon src='/icons/linkedin.svg' height='28' alt='linkedin'/></a>
-          <a href='https://github.com/kxmatejka' target='_blank'><SocialIcon src='/icons/github.svg' height='28' alt='linkedin'/></a>
-        </SocialIconContainer>
+        <HeaderContainer>
+          <Photo src='/photo3.webp' alt='photo'/>
+          <div>
+            <MegaHeading>Kryštof Matějka</MegaHeading>
+            <SocialIconContainer>
+              <a href='https://www.linkedin.com/in/kry%C5%A1tof-mat%C4%9Bjka-a16a3182/' target='_blank'><SocialIcon src='/icons/linkedin.svg' height='28' alt='linkedin'/></a>
+              <a href='https://github.com/kxmatejka' target='_blank'><SocialIcon src='/icons/github.svg' height='28' alt='linkedin'/></a>
+            </SocialIconContainer>
+          </div>
+        </HeaderContainer>
+
+
         <Heading><T code='cv.timelineTitles.experience'/></Heading>
         <Timeline height='30px'/>
 
