@@ -269,6 +269,8 @@ const HeaderContainer = styled.div`
 `
 
 const Photo = styled(Image)`
+  width: 100px;
+  height: 100px;
   background-color: #c5beb6;
   clip-path: circle(50% at 50% 50%);
 `
@@ -295,7 +297,6 @@ const Cv = () => {
             </SocialIconContainer>
           </HeadingWithSocialContainer>
         </HeaderContainer>
-
 
         <Heading><T code='cv.timelineTitles.experience'/></Heading>
         <Timeline height='30px'/>
