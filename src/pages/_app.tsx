@@ -81,7 +81,7 @@ i18n
         },
       },
     },
-    lng: getDefaultLang(),
+    lng: 'en',
   })
 
 const App = ({Component, pageProps}) => {

@@ -45,6 +45,10 @@ const Heading = styled.h2`
   @media print {
     text-align: left;
   }
+
+  @media only screen and (max-width: 500px) {
+    width: ${TIMELINE_WIDTH * 0.8}px;
+  }
 `
 
 const StyledTimeMark = styled.div`
@@ -66,11 +70,14 @@ const StyledTimeMark = styled.div`
 
   @media print {
     border: 0;
+    margin: 0;
     text-align: left;
 
     width: ${TIMELINE_WIDTH / 2}px;
-    
-    margin: 0px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    width: ${TIMELINE_WIDTH * 0.8}px;
   }
 `
 
@@ -96,6 +103,10 @@ const StyledTimeMarkChildren = styled.div`
 
     width: ${TIMELINE_WIDTH / 2}px;
   }
+
+  @media only screen and (max-width: 500px) {
+    width: ${TIMELINE_WIDTH * 0.8}px;
+  }
 `
 
 const TimeMark: FC<{ year: number | string }> = ({year, children}) => {
@@ -120,6 +131,10 @@ const TimelineContainer = styled.div`
 
   @media print {
     width: ${TIMELINE_WIDTH / 2}px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    width: ${TIMELINE_WIDTH * 0.8}px;
   }
 `
 
@@ -154,6 +169,10 @@ const TimeMarkDescription = styled.div`
   @media print {
     margin: 10px;
   }
+
+  @media only screen and (max-width: 500px) {
+    margin-left: 15px;
+  }
 `
 
 const TimeMarkLeftContainer = styled.div`
@@ -162,8 +181,9 @@ const TimeMarkLeftContainer = styled.div`
 `
 
 const TransContainer = styled.div`
-  position: fixed;
-  right: 0;
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
 
   @media print {
     display: none;
@@ -189,13 +209,13 @@ const TransParek = () => {
         src='/icons/uk.svg' alt='en' title='english'
         onClick={() => i18n.changeLanguage('en')}
         width={35}
-        inactive={(i18n.language != 'en')}
+        inactive={i18n.language !== 'en'}
       />
       <ImgButton
         src='/icons/cs.svg' alt='cs' title='czech'
         onClick={() => i18n.changeLanguage('cs')}
         width={27}
-        inactive={(i18n.language != 'cs')}
+        inactive={i18n.language !== 'cs'}
       />
     </TransContainer>
   )
@@ -217,6 +237,8 @@ const CompanyLink = styled.a`
 `
 
 const MegaHeading = styled.h1`
+  margin: 0;
+
   @media print {
     margin: 25px 0 50px 0;
   }
@@ -230,14 +252,29 @@ const T: FC<{ code: string, noEscape?: boolean }> = ({code, noEscape}) => {
     : t(code)
 }
 
+const SocialIcon = styled.img`
+  height: 28px;
+  margin-right: 10px;
+`
+
+const SocialIconContainer = styled.div`
+  margin-top: 10px;
+  margin-bottom: 25px;
+`
+
 const Cv = () => {
   return (
     <>
-      <TransParek/>
       <Container>
+        <TransParek/>
         <MegaHeading>Kryštof Matějka</MegaHeading>
+        <SocialIconContainer>
+          <a href='https://www.linkedin.com/in/kry%C5%A1tof-mat%C4%9Bjka-a16a3182/' target='_blank'><SocialIcon src='/icons/linkedin.svg' height='28' alt='linkedin'/></a>
+          <a href='https://github.com/kxmatejka' target='_blank'><SocialIcon src='/icons/github.svg' height='28' alt='linkedin'/></a>
+        </SocialIconContainer>
         <Heading><T code='cv.timelineTitles.experience'/></Heading>
         <Timeline height='30px'/>
+
         <TimeMarkContainer>
           <TimeMarkLeftContainer>
             <TimeMark year='2021'>
@@ -259,6 +296,7 @@ const Cv = () => {
             <p><T code='cv.2021.p2'/></p>
           </TimeMarkDescription>
         </TimeMarkContainer>
+
         <TimeMarkContainer>
           <TimeMarkLeftContainer>
             <TimeMark year='2020'>
