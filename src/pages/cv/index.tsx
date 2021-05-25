@@ -1,5 +1,6 @@
 import React, {FC} from 'react'
 import styled from 'styled-components'
+import Image from 'next/image'
 import {
   ReactIcon,
   TypescriptIcon,
@@ -16,6 +17,7 @@ const TIMELINE_WIDTH = 130
 
 const Container = styled.div`
   padding: 0 50px 20px 50px;
+  margin-bottom: 20px;
   max-width: 700px;
 
   @media only screen and (max-width: 600px) {
@@ -182,7 +184,7 @@ const TimeMarkLeftContainer = styled.div`
 
 const TransContainer = styled.div`
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   margin-top: 10px;
 
   @media print {
@@ -238,6 +240,7 @@ const CompanyLink = styled.a`
 
 const MegaHeading = styled.h1`
   margin: 0;
+  width: 100%;
 
   @media print {
     margin: 25px 0 50px 0;
@@ -258,19 +261,23 @@ const SocialIcon = styled.img`
 `
 
 const SocialIconContainer = styled.div`
-  margin-top: 10px;
-  margin-bottom: 25px;
+  margin: 0;
 `
 
 const HeaderContainer = styled.div`
   display: flex;
 `
 
-const Photo = styled.img`
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  margin-right: 20px;
+const Photo = styled(Image)`
+  background-color: #c5beb6;
+  clip-path: circle(50% at 50% 50%);
+`
+
+const HeadingWithSocialContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  margin-left: 20px;
 `
 
 const Cv = () => {
@@ -279,14 +286,14 @@ const Cv = () => {
       <Container>
         <TransParek/>
         <HeaderContainer>
-          <Photo src='/photo3.webp' alt='photo'/>
-          <div>
+          <Photo src='/photo3.webp' alt='photo' width={100} height={100}/>
+          <HeadingWithSocialContainer>
             <MegaHeading>Kryštof Matějka</MegaHeading>
             <SocialIconContainer>
               <a href='https://www.linkedin.com/in/kry%C5%A1tof-mat%C4%9Bjka-a16a3182/' target='_blank'><SocialIcon src='/icons/linkedin.svg' height='28' alt='linkedin'/></a>
               <a href='https://github.com/kxmatejka' target='_blank'><SocialIcon src='/icons/github.svg' height='28' alt='linkedin'/></a>
             </SocialIconContainer>
-          </div>
+          </HeadingWithSocialContainer>
         </HeaderContainer>
 
 
