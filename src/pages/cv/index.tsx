@@ -196,6 +196,8 @@ const ImgButton = styled.img<{ inactive?: boolean }>`
   padding: 5px;
   cursor: pointer;
   opacity: ${({inactive}) => (inactive) ? 0.35 : 1};
+  
+  height: 18px;
 
   &:hover {
     opacity: 1;
@@ -210,13 +212,11 @@ const TransParek = () => {
       <ImgButton
         src='/icons/uk.svg' alt='en' title='english'
         onClick={() => i18n.changeLanguage('en')}
-        width={35}
         inactive={i18n.language !== 'en'}
       />
       <ImgButton
         src='/icons/cs.svg' alt='cs' title='czech'
         onClick={() => i18n.changeLanguage('cs')}
-        width={27}
         inactive={i18n.language !== 'cs'}
       />
     </TransContainer>
@@ -256,7 +256,7 @@ const T: FC<{ code: string, noEscape?: boolean }> = ({code, noEscape}) => {
 }
 
 const SocialIcon = styled.img`
-  height: 28px;
+  height: 26px;
   margin-right: 10px;
 `
 
