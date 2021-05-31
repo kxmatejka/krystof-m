@@ -1,6 +1,5 @@
 import React, {FC} from 'react'
 import styled from 'styled-components'
-import Image from 'next/image'
 import {
   ReactIcon,
   TypescriptIcon,
@@ -12,24 +11,24 @@ import {
   FlutterIcon,
 } from '../../components'
 import {useTranslation} from 'react-i18next'
+import {GithubIcon, LinkedinIcon} from '../../components'
 
 const TIMELINE_WIDTH = 130
 
 const Container = styled.div`
-  padding: 0 50px 20px 50px;
-  margin-bottom: 20px;
+  padding: 20px 50px;
   max-width: 700px;
 
   @media only screen and (max-width: 600px) {
-    padding: 0 30px;
+    padding: 20px 30px;
   }
 
   @media only screen and (max-width: 500px) {
-    padding: 0 20px;
+    padding: 20px 20px;
   }
 
   @media only screen and (max-width: 400px) {
-    padding: 0 15px;
+    padding: 20px 15px;
   }
 
   @media print {
@@ -261,39 +260,33 @@ const SocialIcon = styled.img`
 `
 
 const SocialIconContainer = styled.div`
-  margin: 0;
+  margin-top: 20px;
+  
+  & img {
+    margin-right: 10px;
+  }
 `
 
 const HeaderContainer = styled.div`
   display: flex;
 `
 
-const Photo = styled(Image)`
-  width: 100px;
-  height: 100px;
-  background-color: #c5beb6;
-  clip-path: circle(50% at 50% 50%);
-`
-
 const HeadingWithSocialContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
-  margin-left: 20px;
 `
 
 const Cv = () => {
   return (
     <>
       <Container>
-        <TransParek/>
         <HeaderContainer>
-          <Photo src='/photo3.webp' alt='photo' width={100} height={100}/>
           <HeadingWithSocialContainer>
             <MegaHeading>Kryštof Matějka</MegaHeading>
             <SocialIconContainer>
-              <a href='https://www.linkedin.com/in/kry%C5%A1tof-mat%C4%9Bjka-a16a3182/' target='_blank'><SocialIcon src='/icons/linkedin.svg' height='28' alt='linkedin'/></a>
-              <a href='https://github.com/kxmatejka' target='_blank'><SocialIcon src='/icons/github.svg' height='28' alt='linkedin'/></a>
+              <a href='https://www.linkedin.com/in/kry%C5%A1tof-mat%C4%9Bjka-a16a3182/' target='_blank'><LinkedinIcon/></a>
+              <a href='https://github.com/kxmatejka' target='_blank'><GithubIcon/></a>
             </SocialIconContainer>
           </HeadingWithSocialContainer>
         </HeaderContainer>
@@ -411,9 +404,7 @@ const Cv = () => {
         <Timeline height='30px'/>
         <TimeMarkContainer>
           <TimeMarkLeftContainer>
-            <TimeMark year='2014'>
-              <PhpIcon/>
-            </TimeMark>
+            <TimeMark year='2014'/>
             <Timeline/>
           </TimeMarkLeftContainer>
           <TimeMarkDescription>
@@ -423,7 +414,6 @@ const Cv = () => {
                 target='_blank'>Střední průmyslová škola Varnsdorf</CompanyLink>
             </p>
             <p><T code='cv.highSchool.p1'/></p>
-            <p><T code='cv.highSchool.p2'/></p>
           </TimeMarkDescription>
         </TimeMarkContainer>
       </Container>

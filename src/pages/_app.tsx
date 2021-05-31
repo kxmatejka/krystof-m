@@ -4,10 +4,6 @@ import i18n from 'i18next'
 import {initReactI18next} from 'react-i18next'
 import {GlobalStyle} from '../components/global-style'
 
-const getDefaultLang = () => {
-  return (globalThis.navigator&& navigator.language === 'cs') ? 'cs' : 'en'
-}
-
 i18n
   .use(initReactI18next)
   .init({
@@ -41,7 +37,6 @@ i18n
             },
             highSchool: {
               p1: 'Graduated from computer networks, databases and programming',
-              p2: 'Practical exam was a CMS in PHP with its own implementation of MVC',
             },
           },
         },
@@ -75,7 +70,6 @@ i18n
             },
             highSchool: {
               p1: 'Odmaturoval jsem z počítačových sítí, databází a programování',
-              p2: 'Pro praktickou zkoušku jsem vytvořil CMS v PHP s vlastní MVC implementací',
             },
           },
         },
